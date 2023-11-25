@@ -159,12 +159,23 @@ onChange={(e)=>handleChange(e)}
             </a> */}
 
 
-
+{/* 
 <a className="nav-link" href={localUser ? '/author/' + localUser.id : '/login'}>
 {localUser && <img width="40" height="40" className='mr-3' src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/48/external-user-circle-user-royyan-wijaya-detailed-outline-royyan-wijaya.png" alt="external-user-circle-user-royyan-wijaya-detailed-outline-royyan-wijaya"/>}
 {localUser && <span className="align-middle">{localUser.username}</span>}
+</a> */}
+<a className="nav-link" href={localUser ? '/author/' + localUser.id : '/login'}>
+  {localUser && (
+    <Image
+      src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/48/external-user-circle-user-royyan-wijaya-detailed-outline-royyan-wijaya.png"
+      alt="external-user-circle-user-royyan-wijaya-detailed-outline-royyan-wijaya"
+      width={40}
+      height={40}
+      className="mr-3"
+    />
+  )}
+  {localUser && <span className="align-middle">{localUser.username}</span>}
 </a>
-
           </li>
           <li className="nav-item">
       <a className="nav-link active" href="/login">

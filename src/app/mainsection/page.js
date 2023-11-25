@@ -52,19 +52,43 @@ const handlesearchusername = (username) => {
   // }, []);
 
 
+// const [parseUser,setParseUser] = useState(null);
+
+//   useEffect(() => {
+//         // if (localUser) {
+//           if(typeof window !=='undefined')
+//           {
+//             const localuser = localStorage.getItem('user');
+//             if(localUser)
+//             {
+//               const parseUser = JSON.parse(localUser);
+//               setParsedUser(parseUser.user)
+//             }
+//          dispatch(fetchLikes(localUser.id));
+//          dispatch(fetchPosts());
+//         //  dispatch(commentcount());
+//         }
+  
+
+//     // fetchData();
+// }, [dispatch]);
 
 
-  useEffect(() => {
-    const fetchData = async () => {
-        if (localUser) {
-         await dispatch(fetchLikes(localUser.id));
-         await dispatch(fetchPosts());
-         await dispatch(commentcount());
-        }
-    };
 
-    fetchData();
-}, [dispatch, localUser]);
+const [parseUser, setParseUser] = useState(null);
+
+useEffect(() => {
+  if (typeof window !== 'undefined') {
+    const localUser = localStorage.getItem('user');
+    if (localUser) {
+      const parsedUser = JSON.parse(localUser);
+      setParseUser(parsedUser.user);
+      dispatch(fetchLikes(parsedUser.id));
+      dispatch(fetchPosts());
+      // dispatch(commentcount());
+    }
+  }
+}, [dispatch]);
 
 
 
